@@ -17,7 +17,7 @@ class Contenedor {
             id:this.id,
             product: objeto
         })
-        await fs.promises.writeFile(`./ServerCoderHouse/product/${this.archivo}`,JSON.stringify(this.data, null, 2));
+        await fs.promises.writeFile(`./tareaCoderHouse/db/${this.archivo}`,JSON.stringify(this.data, null, 2));
         return this.id;
     }
 
