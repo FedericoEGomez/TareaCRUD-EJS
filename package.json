@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon tareaCoderHouse/app.js",
-    "start": "node tareaCoderHouse/bin/www"
+    "start": "node tareaCoderHouse/app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

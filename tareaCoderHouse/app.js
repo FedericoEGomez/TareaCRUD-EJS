@@ -45,7 +45,6 @@ io.on('connection', async socket => {
   socket.emit('mensajes', messages);
   socket.on('nuevoMensaje', async msg => {
     msg.fyh = new Date().toLocaleString();
-    console.log(msg)
     await contenedorMensajes.saveProduct(msg);
     io.emit('mensajes', messages);
   })

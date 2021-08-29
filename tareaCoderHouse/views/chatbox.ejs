@@ -33,5 +33,39 @@
     </div>
   </div>
 </div>
+<script>
+  const socket = io.connect();
+  //MESSAGE
+  
+  const user = document.getElementById('user');
+    const message = document.getElementById('msg');
+    const send = document.getElementById('send');
+    const messageForm = document.getElementById('messageForm');
 
+    messageForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const msg = { 
+        author: user.value, 
+        text: message.value 
+    };
+    socket.emit('nuevoMensaje', msg);
+    messageForm.reset();
+    message.focus();
+    });
+
+    socket.on('mensajes', msg => {
+    const html = listaMensajes(msg);
+    document.getElementById('mensajes').innerHTML = html;
+    });
+
+    const listaMensajes = mensajes => mensajes.map( msg =>
+    `
+        <tr>
+            <td>${msg.author}</td>
+             <td>${msg.text}</td>
+            <td>${msg.fyh}</td> 
+        </tr>
+    `
+    ).join(' ');
+</script>
 <% include partials/_footer %>
