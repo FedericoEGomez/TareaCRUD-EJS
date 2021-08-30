@@ -59,9 +59,8 @@
   name.focus();
   });
 
-  socket.on('productsTable', product => {
+  socket.on('productos', product => {
   const html = listaProductos(product);
-  
   document.getElementById('productsTable').innerHTML = html;
   });
   
@@ -70,7 +69,7 @@
       <tr>
           <td>${product.name}</td>
           <td>${product.price}</td>
-          <td>${product.url}</td>
+          <td><img class="modal-content container-sm" src=${product.url} ></td>
       </tr>
   `
   ).join(' ');

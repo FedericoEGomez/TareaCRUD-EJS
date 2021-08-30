@@ -49,6 +49,7 @@ io.on('connection', async socket => {
     io.emit('mensajes', messages);
   })
 });
+//ROUTS
 app.get('/', (req, res) => {
 	res.status(200).render('index');
 })
